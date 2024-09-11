@@ -26,7 +26,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUser(int id) {
+    public Optional<User> getUser(Long id) {
         Optional optional = Optional.of(userRepository.findAll().stream().filter(x -> x.getId() == id).findFirst().get());
         return optional;
     }

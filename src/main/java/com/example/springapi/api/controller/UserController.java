@@ -3,6 +3,7 @@ package com.example.springapi.api.controller;
 import com.example.springapi.api.model.User;
 import com.example.springapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public User getUser(@RequestParam int id) {
+    public User getUser(@RequestParam Long id) {
         Optional user = userService.getUser(id);
         if (user.isPresent()) return (User) user.get();
         else return null;
